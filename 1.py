@@ -26,17 +26,17 @@ def coletar_informacoes():
 
     if formacao != 0:
         formacaoGeral = int(input("Área de formação geral (0 - Engenharia, 1 - Computação): "))
-    
+
         # Verificar se a área de formação geral é 0 ou 1
         if formacaoGeral not in [0, 1]:
             print("Erro: Área de formação geral deve ser 0 ou 1. Tente novamente.")
             return coletar_informacoes()
-        
+
         formacaoEspecifica = input("Área de formação específica: ")
     else:
         formacaoGeral = None
         formacaoEspecifica = None
-    
+
     if formacao == 1 or formacao == 2:
         andamentoGraduacao = float(input("Andamento da graduação (% concluído): "))
         tempoFormacao = None
@@ -46,22 +46,22 @@ def coletar_informacoes():
     else:
         andamentoGraduacao = None
         tempoFormacao = None
-    
+
     experienciaPrevia = input("Tinha experiência prévia em programação? (True ou False): ").lower()
-    
+
     # Verificar se a experiência prévia é True ou False
     if experienciaPrevia not in ['true', 'false']:
         print("Erro: Experiência prévia deve ser True ou False. Tente novamente.")
         return coletar_informacoes()
-    
+
     experienciaPrevia = experienciaPrevia == 'true'
-    
+
     return identificador, idade, formacao, formacaoGeral, formacaoEspecifica, andamentoGraduacao, tempoFormacao, experienciaPrevia
 
 # Coleta de informações para 3 membros da equipe
 for _ in range(3):
     info = coletar_informacoes()
-    
+
     identificador.append(info[0])
     idade.append(info[1])
     formacao.append(info[2])
