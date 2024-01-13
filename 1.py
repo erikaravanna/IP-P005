@@ -9,24 +9,24 @@ experienciaPrevia = []
 
 # Função para coletar informações de um membro da equipe
 def coletar_informacoes():
-    identificador = input("Identificador (tic18PyXXXXX): ")
-    
+    identificador = input("Digite os 3 primeiros do CPF e os 2 últimos da data de nascimento. Identificador (tic18PyXXXXX) : ")
+
     # Verificar se o identificador tem 5 dígitos, sendo os 3 primeiros do CPF e os 2 últimos da data de nascimento
     if len(identificador) != 5 or not identificador.isdigit() or int(identificador[:3]) > 999 or int(identificador[3:]) > 99:
         print("Erro: Identificador inválido. Deve ter 5 dígitos (3 do CPF, 2 da data de nascimento). Tente novamente.")
         return coletar_informacoes()
-    
+
     idade = int(input("Idade: "))
     formacao = int(input("Formação (0 - Técnica, 1 - Técnica Graduação em andamento, 2 - Graduação em andamento, 3 - Graduação concluída): "))
-    
+
     # Verificar se a formação é 0, 1, 2 ou 3
     if formacao not in [0, 1, 2, 3]:
         print("Erro: Formação deve ser 0, 1, 2 ou 3. Tente novamente.")
         return coletar_informacoes()
-    
+
     if formacao != 0:
         formacaoGeral = int(input("Área de formação geral (0 - Engenharia, 1 - Computação): "))
-        
+    
         # Verificar se a área de formação geral é 0 ou 1
         if formacaoGeral not in [0, 1]:
             print("Erro: Área de formação geral deve ser 0 ou 1. Tente novamente.")
